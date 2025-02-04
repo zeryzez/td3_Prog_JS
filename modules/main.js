@@ -6,5 +6,10 @@ const research = document.getElementById('product-search');
 
 window.addEventListener('load', init);
 
-
+research.addEventListener('keyup', function(e){
+    const keyword = e.target.value;
+    search(keyword);
+    productList.innerHTML = '';
+    init();
+});
 
