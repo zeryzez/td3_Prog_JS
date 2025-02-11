@@ -1,6 +1,11 @@
 import { Cart } from './cart.js';
 
 const productsList = document.getElementById('product-list');
+const cartContainer = document.getElementById('cart-wrapper');
+const cartHeader = document.getElementById('cart-header');
+const cartContent = document.getElementById('cart-content');
+const cartFooter = document.getElementById('cart-footer');
+const totalProduct = document.getElementById('total-products');
 
 function displayProduct(product){
     const container = document.createElement('div');
@@ -26,7 +31,7 @@ function displayProduct(product){
     const addToCartBtn = container.querySelector('.product-add2cart');
     addToCartBtn.addEventListener('click', () => {
         Cart.addToCart(product);
-        console.log(`Produit ajouté au panier: ${product.ref}`);
+        displayCart();
     });
     return container;
 }
@@ -37,4 +42,22 @@ export function buildProductsList(products){
     }
 }
 
+function displayCart(){
+    const cartItems = Cart.contenu;
+    totalProduct.innerHTML = cartItems.map(item => item.qty).reduce((acc, curr) => acc + curr, 0);
+    
+    cartContent.innerHTML = cartItems.map(item => `
+        <tr class="cart-item">
+            <td>${item.product.ref}</td>
+            <td>${item.qty}</td>
+            <td>${item.product.price * item.qty} €</td>
+        </tr>
+    `).reduce((acc, curr) => acc + curr, '');
 
+    const total = Cart.genericCalc((acc, item) => acc + item.product.price*item.qty, 0);
+    cartFooter.innerHTML = `
+        <strong class="bigger">Total :&nbsp;</strong>
+        <span class="bigger" id="cart-total">${total.toFixed(2)} €</span>
+    `;
+
+}
