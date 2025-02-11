@@ -9,6 +9,7 @@ let p2 = new Product('ref2', 200, 'desc2');
 let p3 = new Product('ref3', 300, 'desc3');
 
 const products = [p1, p2, p3];
+
 export let productsFiltered = products;
 
 export function search(keyword){

@@ -1,0 +1,20 @@
+{
+  "name": "tp3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeryzez/td3_Prog_JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeryzez/td3_Prog_JS/issues"
+  },
+  "homepage": "https://github.com/zeryzez/td3_Prog_JS#readme",
+  "description": ""
+}

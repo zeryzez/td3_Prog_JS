@@ -1,5 +1,6 @@
 export const Cart = {
     contenu: [],
+    
     addToCart(product) {
         const existingProduct = this.contenu.find(item => item.product === product);
         if (existingProduct) {
